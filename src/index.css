@@ -140,6 +140,6 @@ All colors MUST be HSL for consistency and theming support.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground scroll-smooth;
   }
 }
