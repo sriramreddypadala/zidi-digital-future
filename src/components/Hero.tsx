@@ -1,6 +1,7 @@
 import { ArrowRight, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import CSSAnimatedBackground from "@/components/CSSAnimatedBackground";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
   return (
@@ -12,15 +13,6 @@ export const Hero = () => {
       
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="max-w-6xl mx-auto animate-fade-in">
-          {/* Logo for brand recognition */}
-          <div className="mb-8 flex justify-center">
-            <img 
-              src="/logo.jpeg" 
-              alt="Zidi Digital Solutions Logo" 
-              className="h-16 w-auto object-contain drop-shadow-lg animate-glow"
-            />
-          </div>
-          
           {/* Mission statement badge */}
           <div className="mb-8 inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 backdrop-blur-sm">
             <span className="text-primary text-sm font-medium tracking-wide">
@@ -49,13 +41,17 @@ export const Hero = () => {
           
           {/* Strong CTAs */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-5 text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-primary/25 animate-glow">
-              Start Your Project
-              <ArrowRight className="ml-3 h-6 w-6" />
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-5 text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-primary/25 animate-glow">
+              <Link to="/contact">
+                Start Your Project
+                <ArrowRight className="ml-3 h-6 w-6" />
+              </Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground px-10 py-5 text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
-              Join Our Team
-              <Rocket className="ml-3 h-6 w-6" />
+            <Button asChild size="lg" variant="outline" className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground px-10 py-5 text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
+              <Link to="/internship">
+                Join Our Team
+                <Rocket className="ml-3 h-6 w-6" />
+              </Link>
             </Button>
           </div>
         </div>

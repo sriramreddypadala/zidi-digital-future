@@ -50,14 +50,6 @@ export const CoreOfferings = () => {
       <div className="container mx-auto px-6 relative z-10 max-w-7xl">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
-          {/* Logo for brand recognition */}
-          <div className="mb-8 flex justify-center">
-            <img 
-              src="/logo.jpeg" 
-              alt="Zidi Digital Solutions Logo" 
-              className="h-14 w-auto object-contain"
-            />
-          </div>
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
             <span className="text-primary text-sm font-medium tracking-wide">OUR CORE OFFERINGS</span>
           </div>

@@ -1,4 +1,4 @@
-import { Linkedin, Instagram, Github, Mail } from "lucide-react";
+import { Linkedin, Instagram, Facebook, MessageCircle, Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
@@ -10,7 +10,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <img 
                 src="/logo.jpeg" 
-                alt="Zidi Digital Solutions Logo" 
+                alt="Zidi Digital Solutions India | Web Development Services by Divyesh Bondapalli" 
                 className="h-12 w-auto object-contain"
               />
               <h3 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">Zidi Digital Solutions</h3>
@@ -39,9 +39,11 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-semibold mb-3">Connect</h4>
             <div className="flex gap-4 text-muted-foreground">
-              <a href="#" aria-label="LinkedIn" className="hover:text-primary"><Linkedin className="h-5 w-5"/></a>
-              <a href="#" aria-label="Instagram" className="hover:text-primary"><Instagram className="h-5 w-5"/></a>
-              <a href="#" aria-label="GitHub" className="hover:text-primary"><Github className="h-5 w-5"/></a>
+              <a href="https://www.linkedin.com/company/zidi-digital-solutions" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-primary transition-colors hover:scale-110"><Linkedin className="h-5 w-5"/></a>
+              <a href="https://www.facebook.com/people/zidi-digitals/61577994181188/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-primary transition-colors hover:scale-110"><Facebook className="h-5 w-5"/></a>
+              <a href="https://www.instagram.com/zididigitals/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-primary transition-colors hover:scale-110"><Instagram className="h-5 w-5"/></a>
+              <a href="https://x.com/ZidiDigitals" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="hover:text-primary transition-colors hover:scale-110"><MessageCircle className="h-5 w-5"/></a>
+              <a href="https://www.whatsapp.com/channel/0029VbBKgQ12ZjCm5l7H4k35" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Channel" className="hover:text-primary transition-colors hover:scale-110"><Phone className="h-5 w-5"/></a>
             </div>
           </div>
         </div>

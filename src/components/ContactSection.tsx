@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MapPin, Phone, Mail, Clock, MessageCircle, ArrowRight, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, MessageCircle, ArrowRight, Send, Linkedin, Instagram, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -54,14 +54,6 @@ export const ContactSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20 animate-fade-in">
-          {/* Logo for brand recognition */}
-          <div className="mb-8 flex justify-center">
-            <img 
-              src="/logo.jpeg" 
-              alt="Zidi Digital Solutions Logo" 
-              className="h-12 w-auto object-contain"
-            />
-          </div>
           <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 mb-6">
             <MessageCircle className="h-5 w-5 text-primary mr-2" />
             <span className="text-primary text-sm font-medium tracking-wide">GET IN TOUCH</span>
@@ -116,16 +108,68 @@ export const ContactSection = () => {
               <Button 
                 size="lg" 
                 className="w-full bg-success hover:bg-success/90 text-success-foreground font-semibold rounded-xl transition-all duration-300 transform hover:scale-105"
-                onClick={() => window.open('https://wa.me/917416665003', '_blank')}
+                onClick={() => window.open('https://www.whatsapp.com/channel/0029VbBKgQ12ZjCm5l7H4k35', '_blank')}
               >
                 <MessageCircle className="mr-2 h-5 w-5" />
-                WhatsApp Us Now
+                Join WhatsApp Channel
               </Button>
               <div className="text-center">
                 <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
                   <Clock className="h-4 w-4 text-primary mr-2" />
                   <span className="text-primary text-sm font-medium">Usually responds within 1 hour</span>
                 </div>
+              </div>
+            </div>
+
+            {/* Social Media Links */}
+            <div className="mt-8">
+              <h3 className="text-lg font-semibold text-foreground mb-4">Follow Us</h3>
+              <div className="flex flex-wrap gap-3">
+                <a 
+                  href="https://www.linkedin.com/company/zidi-digital-solutions" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-background border border-border rounded-lg hover:border-primary hover:bg-primary/5 transition-all duration-300 group"
+                >
+                  <Linkedin className="h-4 w-4 text-primary group-hover:scale-110 transition-transform" />
+                  <span className="text-sm text-foreground group-hover:text-primary transition-colors">LinkedIn</span>
+                </a>
+                <a 
+                  href="https://www.facebook.com/people/zidi-digitals/61577994181188/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-background border border-border rounded-lg hover:border-primary hover:bg-primary/5 transition-all duration-300 group"
+                >
+                  <Facebook className="h-4 w-4 text-primary group-hover:scale-110 transition-transform" />
+                  <span className="text-sm text-foreground group-hover:text-primary transition-colors">Facebook</span>
+                </a>
+                <a 
+                  href="https://www.instagram.com/zididigitals/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-background border border-border rounded-lg hover:border-primary hover:bg-primary/5 transition-all duration-300 group"
+                >
+                  <Instagram className="h-4 w-4 text-primary group-hover:scale-110 transition-transform" />
+                  <span className="text-sm text-foreground group-hover:text-primary transition-colors">Instagram</span>
+                </a>
+                <a 
+                  href="https://x.com/ZidiDigitals" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-background border border-border rounded-lg hover:border-primary hover:bg-primary/5 transition-all duration-300 group"
+                >
+                  <MessageCircle className="h-4 w-4 text-primary group-hover:scale-110 transition-transform" />
+                  <span className="text-sm text-foreground group-hover:text-primary transition-colors">X (Twitter)</span>
+                </a>
+                <a 
+                  href="https://www.whatsapp.com/channel/0029VbBKgQ12ZjCm5l7H4k35" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-background border border-border rounded-lg hover:border-primary hover:bg-primary/5 transition-all duration-300 group"
+                >
+                  <MessageCircle className="h-4 w-4 text-primary group-hover:scale-110 transition-transform" />
+                  <span className="text-sm text-foreground group-hover:text-primary transition-colors">WhatsApp</span>
+                </a>
               </div>
             </div>
           </div>

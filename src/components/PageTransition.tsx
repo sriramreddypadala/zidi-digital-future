@@ -53,7 +53,7 @@ const PageTransition = ({ children }: PageTransitionProps) => {
             <div className="mb-6 flex justify-center">
               <img 
                 src="/logo.jpeg" 
-                alt="Zidi Digital Solutions" 
+                alt="Zidi Digital Solutions – Business Growth Solutions | Startup Consultancy by Divyesh Bondapalli" 
                 className="h-16 w-auto object-contain animate-pulse"
               />
             </div>

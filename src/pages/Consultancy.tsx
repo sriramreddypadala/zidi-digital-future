@@ -6,9 +6,77 @@ import { Link } from "react-router-dom";
 
 export default function Consultancy() {
   useSEO({
-    title: "Consultancy Program | Zidi Digital Solutions",
-    description: "Expert guidance and tailored solutions: strategy, tech, UX, cloud, and roadmap.",
+    title: "Business Consultancy Services in India | Digital Transformation by Divyesh Bondapalli",
+    description: "Expert business consultancy services by Zidi Digital Solutions. Get digital transformation, startup growth, and IT consultancy from Divyesh Bondapalli in Hyderabad, India.",
+    keywords: "Business Consultancy Services in India, Digital Consultancy by Zidi Digital Solutions, Startup Growth Consultancy by Divyesh Bondapalli, IT Consultancy Services for Businesses, Business Strategy Consultant in India, Marketing Consultancy for Startups, Digital Transformation Consulting, Zidi Business Consultancy and Mentorship, Small Business Growth Solutions, Startup Mentorship by Divyesh Bondapalli, Business Consultancy Hyderabad, IT Consultancy Telangana, Digital Transformation Services India, Startup Growth Consultant, Business Strategy Consulting, Tech Consultancy Services, Digital Business Consultancy, Enterprise Consultancy India, SME Business Consultancy, Business Growth Consulting India, Digital Innovation Consultancy, Technology Strategy Consulting, Business Process Consulting, Zidi Digital Solutions Consulting, Divyesh Bondapalli Business Consultant",
+    author: "Divyesh Bondapalli",
     canonicalPath: "/consultancy",
+    ogTitle: "Business Consultancy Services in India | Digital Transformation by Divyesh Bondapalli",
+    ogDescription: "Expert business consultancy services by Zidi Digital Solutions. Get digital transformation, startup growth, and IT consultancy from Divyesh Bondapalli in Hyderabad, India.",
+    ogImage: "/logo.jpeg",
+    ogUrl: "https://zididigitals.com/consultancy",
+    twitterCard: "summary_large_image",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "ServicePage",
+      "name": "Business Consultancy Services by Zidi Digital Solutions",
+      "description": "Expert business consultancy services by Zidi Digital Solutions. Get digital transformation, startup growth, and IT consultancy from Divyesh Bondapalli in Hyderabad, India.",
+      "url": "https://zididigitals.com/consultancy",
+      "provider": {
+        "@type": "Organization",
+        "name": "Zidi Digital Solutions",
+        "alternateName": ["Zidi Digitals", "Zidi Digital Solutions India"],
+        "description": "India's leading digital agency offering marketing, web development, internships, and consultancy services.",
+        "url": "https://zididigitals.com",
+        "logo": "https://zididigitals.com/logo.jpeg"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Business Consultancy Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Business Strategy & Digital Transformation",
+              "description": "Strategic business planning and digital transformation consulting"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Technology Stack Consultation",
+              "description": "Expert technology consulting and stack optimization"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Product & MVP Roadmapping",
+              "description": "Product strategy and minimum viable product planning"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "UI/UX Audit & Enhancement",
+              "description": "User interface and user experience consulting"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cloud Infrastructure & Scalability",
+              "description": "Cloud architecture and scalability planning"
+            }
+          }
+        ]
+      }
+    }
   });
 
   return (

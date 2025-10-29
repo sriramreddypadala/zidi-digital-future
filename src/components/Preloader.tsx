@@ -72,7 +72,7 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
           <div className="relative">
             <img 
               src="/logo.jpeg" 
-              alt="Zidi Digital Solutions" 
+              alt="Zidi Digital Solutions – Internship Programs India | Career Development by Divyesh Bondapalli" 
               className={`h-32 w-auto object-contain transition-all duration-1000 ${videoLoaded ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}
             />
             {/* Glow effect */}

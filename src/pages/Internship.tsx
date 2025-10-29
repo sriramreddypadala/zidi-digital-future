@@ -5,9 +5,52 @@ import { GraduationCap, Star } from "lucide-react";
 
 export default function Internship() {
   useSEO({
-    title: "Internships | Zidi Digital Solutions",
-    description: "Live projects, mentorship, and certifications to launch your tech career.",
+    title: "Digital Marketing Internships in India | Web Development Training by Zidi Digital Solutions",
+    description: "Join Zidi Digital Solutions internship programs for hands-on digital marketing, web development, and tech training. Launch your career with mentorship from Divyesh Bondapalli.",
+    keywords: "Digital Marketing Internships in India, Internship Program by Zidi Digital Solutions, Web Development Internships for Students, B.Tech Student Internship Program, Learn Digital Marketing with Zidi Digitals, Internship Opportunities by Divyesh Bondapalli, Skill Development and Training Program India, Career Growth with Zidi Digital Solutions, IT Internships for Freshers in India, Student Internship in Tech and Marketing, Web Development Internship Hyderabad, Digital Marketing Training Hyderabad, Tech Internship India, Best Internship Program India, Paid Internship Digital Marketing, Free Internship Web Development, Professional Training Program India, Career Development Program, Student Internship South India, Tech Skills Training India, Digital Marketing Course with Internship, Web Development Course with Internship, Zidi Digital Solutions Internship Reviews, Divyesh Bondapalli Internship Program",
+    author: "Divyesh Bondapalli",
     canonicalPath: "/internship",
+    ogTitle: "Digital Marketing Internships in India | Web Development Training by Zidi Digital Solutions",
+    ogDescription: "Join Zidi Digital Solutions internship programs for hands-on digital marketing, web development, and tech training. Launch your career with mentorship from Divyesh Bondapalli.",
+    ogImage: "/logo.jpeg",
+    ogUrl: "https://zididigitals.com/internship",
+    twitterCard: "summary_large_image",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "EducationalOccupationalProgram",
+      "name": "Digital Marketing & Web Development Internship Program",
+      "description": "Join Zidi Digital Solutions internship programs for hands-on digital marketing, web development, and tech training. Launch your career with mentorship from Divyesh Bondapalli.",
+      "url": "https://zididigitals.com/internship",
+      "provider": {
+        "@type": "Organization",
+        "name": "Zidi Digital Solutions",
+        "alternateName": ["Zidi Digitals", "Zidi Digital Solutions India"],
+        "description": "India's leading digital agency offering marketing, web development, internships, and consultancy services.",
+        "url": "https://zididigitals.com",
+        "logo": "https://zididigitals.com/logo.jpeg"
+      },
+      "hasCourse": [
+        {
+          "@type": "Course",
+          "name": "Web Development Internship",
+          "description": "Hands-on web development training with live projects and mentorship"
+        },
+        {
+          "@type": "Course",
+          "name": "Digital Marketing Internship",
+          "description": "Practical digital marketing training with real campaigns and certifications"
+        }
+      ],
+      "programPrerequisites": "Basic computer knowledge and passion for technology",
+      "timeRequired": "3-6 months",
+      "educationalLevel": "Intermediate to Advanced",
+      "instructor": {
+        "@type": "Person",
+        "name": "Divyesh Bondapalli",
+        "jobTitle": "CEO & Founder",
+        "description": "Young entrepreneur and digital innovator"
+      }
+    }
   });
 
   return (

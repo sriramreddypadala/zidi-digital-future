@@ -56,7 +56,7 @@ const RouteTransition = ({ children }: RouteTransitionProps) => {
               <div className="relative">
                 <img 
                   src="/logo.jpeg" 
-                  alt="Zidi Digital Solutions" 
+                  alt="Zidi Digital Solutions | IT Consultancy Services India | Divyesh Bondapalli Founder" 
                   className="h-24 w-auto object-contain animate-pulse"
                 />
                 {/* Glow effect */}

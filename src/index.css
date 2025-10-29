@@ -143,3 +143,106 @@ All colors MUST be HSL for consistency and theming support.
     @apply bg-background text-foreground scroll-smooth;
   }
 }
+
+@layer utilities {
+  /* Animation classes */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.3s ease-out forwards;
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  .animate-gradient-flow {
+    animation: gradientFlow 3s ease-in-out infinite;
+  }
+
+  .bg-size-200 {
+    background-size: 200% 200%;
+  }
+
+  .bg-pos-0 {
+    background-position: 0% 50%;
+  }
+
+  .bg-pos-100 {
+    background-position: 100% 50%;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  .delay-100 { 
+    transition-delay: 100ms; 
+  }
+
+  .delay-200 { 
+    transition-delay: 200ms; 
+  }
+
+  .delay-300 { 
+    transition-delay: 300ms; 
+  }
+
+  .delay-400 { 
+    transition-delay: 400ms; 
+  }
+}
+
+@layer keyframes {
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes gradientFlow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes float {
+    0%, 100% { 
+      transform: translateY(0px); 
+    }
+    50% { 
+      transform: translateY(-20px); 
+    }
+  }
+}

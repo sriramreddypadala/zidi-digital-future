@@ -25,7 +25,7 @@ const VideoHero = ({
           <div className="mb-8 flex justify-center">
             <img 
               src="/logo.jpeg" 
-              alt="Zidi Digital Solutions Logo" 
+              alt="Zidi Digital Solutions – Digital Marketing Agency Hyderabad | Divyesh Bondapalli" 
               className="h-12 w-auto object-contain"
             />
           </div>
