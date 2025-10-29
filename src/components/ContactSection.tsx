@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Phone, MessageCircle, Send, MapPin, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, MessageCircle, ArrowRight, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -22,59 +22,88 @@ export const ContactSection = () => {
 
   const contactInfo = [
     {
-      icon: Mail,
-      title: "Email Us",
-      details: "hello@zididigitals.com",
-      subtext: "24/7 response time"
+      icon: MapPin,
+      label: "Visit Our Office",
+      value: "Coimbatore, Tamil Nadu",
+      action: null
     },
     {
       icon: Phone,
-      title: "Call Us",
-      details: "+1 (555) 123-4567",
-      subtext: "Mon-Fri 9AM-6PM"
+      label: "Call Us",
+      value: "+91 7416 665 003",
+      action: () => window.open('tel:+917416665003', '_self')
     },
     {
-      icon: MapPin,
-      title: "Visit Us",
-      details: "123 Innovation Hub, Tech City",
-      subtext: "Modern co-working space"
+      icon: Mail,
+      label: "Email Us",
+      value: "zididigitals@gmail.com",
+      action: () => window.open('mailto:zididigitals@gmail.com', '_self')
+    },
+    {
+      icon: Clock,
+      label: "Business Hours",
+      value: "Mon - Sat: 9:00 AM - 6:00 PM",
+      action: null
     }
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-slate-900 to-slate-950 relative">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-electric-purple-900/20 via-transparent to-transparent"></div>
+    <section className="py-24 bg-gradient-to-b from-background to-secondary relative">
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5"></div>
       
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20 animate-fade-in">
-          <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-neon-cyan-500/10 to-electric-purple-500/10 border border-neon-cyan-500/20 mb-6">
-            <MessageCircle className="h-5 w-5 text-neon-cyan-400 mr-2" />
-            <span className="text-neon-cyan-300 text-sm font-medium font-futuristic">GET IN TOUCH</span>
+          {/* Logo for brand recognition */}
+          <div className="mb-8 flex justify-center">
+            <img 
+              src="/logo.jpeg" 
+              alt="Zidi Digital Solutions Logo" 
+              className="h-12 w-auto object-contain"
+            />
           </div>
-          <h2 className="text-5xl md:text-6xl font-bold mb-8 font-futuristic bg-gradient-to-r from-neon-cyan-400 to-electric-purple-500 bg-clip-text text-transparent">
+          <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 mb-6">
+            <MessageCircle className="h-5 w-5 text-primary mr-2" />
+            <span className="text-primary text-sm font-medium tracking-wide">GET IN TOUCH</span>
+          </div>
+          <h2 className="text-5xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
             Let's Build Something Amazing Together
           </h2>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             Ready to transform your ideas into reality? Get in touch and let's discuss how we can help your business grow.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-12">
-          {/* Contact Information */}
-          <div className="lg:col-span-1 space-y-8">
-            <div className="space-y-6">
+          {/* Contact Info Cards */}
+          <div className="lg:col-span-1">
+            <div className="grid grid-cols-1 gap-4">
               {contactInfo.map((info, index) => (
-                <Card key={index} className="bg-gradient-to-br from-slate-800/60 to-slate-700/60 border-slate-600/50 backdrop-blur-sm hover:border-neon-cyan-500/50 transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r from-neon-cyan-500/20 to-electric-purple-500/20 border border-neon-cyan-500/30">
-                        <info.icon className="h-6 w-6 text-neon-cyan-400" />
+                <Card 
+                  key={index} 
+                  className={`bg-card border-border hover:border-primary/20 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg animate-scale-in p-4 ${info.action ? 'cursor-pointer group' : ''}`}
+                  onClick={info.action || undefined}
+                  style={{animationDelay: `${index * 100}ms`}}
+                >
+                  <CardContent className="p-0">
+                    <div className="flex items-center space-x-4">
+                      <div className="flex-shrink-0">
+                        <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 group-hover:bg-primary/20 transition-colors">
+                          <info.icon className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-white font-futuristic mb-1">{info.title}</h3>
-                        <p className="text-gray-300 font-medium">{info.details}</p>
-                        <p className="text-sm text-gray-400">{info.subtext}</p>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-semibold text-card-foreground text-sm mb-1">{info.label}</h3>
+                        {info.action ? (
+                          <div className="flex items-center space-x-2">
+                            <p className="text-xs text-muted-foreground group-hover:text-primary transition-colors">
+                              {info.label === "Call Us" ? "Tap to call" : "Tap to email"}
+                            </p>
+                            <ArrowRight className="h-3 w-3 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                          </div>
+                        ) : (
+                          <p className="text-xs text-muted-foreground">{info.value}</p>
+                        )}
                       </div>
                     </div>
                   </CardContent>
@@ -83,18 +112,19 @@ export const ContactSection = () => {
             </div>
 
             {/* Quick Actions */}
-            <div className="space-y-4">
+            <div className="mt-6 space-y-4">
               <Button 
                 size="lg" 
-                className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105"
+                className="w-full bg-success hover:bg-success/90 text-success-foreground font-semibold rounded-xl transition-all duration-300 transform hover:scale-105"
+                onClick={() => window.open('https://wa.me/917416665003', '_blank')}
               >
                 <MessageCircle className="mr-2 h-5 w-5" />
                 WhatsApp Us Now
               </Button>
               <div className="text-center">
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-cyber-blue-500/10 to-neon-cyan-500/10 border border-cyber-blue-500/20">
-                  <Clock className="h-4 w-4 text-cyber-blue-400 mr-2" />
-                  <span className="text-cyber-blue-300 text-sm font-medium">Usually responds within 1 hour</span>
+                <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+                  <Clock className="h-4 w-4 text-primary mr-2" />
+                  <span className="text-primary text-sm font-medium">Usually responds within 1 hour</span>
                 </div>
               </div>
             </div>
@@ -102,28 +132,28 @@ export const ContactSection = () => {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <Card className="bg-gradient-to-br from-slate-800/60 to-slate-700/60 border-slate-600/50 backdrop-blur-sm">
+            <Card className="bg-card border-border">
               <CardContent className="p-8">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Name & Email Row */}
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-gray-300 font-futuristic">Full Name</label>
+                      <label className="text-sm font-medium text-foreground">Full Name</label>
                       <Input
                         placeholder="Enter your full name"
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        className="bg-slate-900/50 border-slate-600 text-white placeholder:text-gray-400 focus:border-neon-cyan-500 transition-colors"
+                        className="bg-background border-input text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors"
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-gray-300 font-futuristic">Email Address</label>
+                      <label className="text-sm font-medium text-foreground">Email Address</label>
                       <Input
                         type="email"
                         placeholder="Enter your email"
                         value={formData.email}
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
-                        className="bg-slate-900/50 border-slate-600 text-white placeholder:text-gray-400 focus:border-neon-cyan-500 transition-colors"
+                        className="bg-background border-input text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors"
                       />
                     </div>
                   </div>
@@ -131,21 +161,21 @@ export const ContactSection = () => {
                   {/* Phone & Service Row */}
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-gray-300 font-futuristic">Phone Number</label>
+                      <label className="text-sm font-medium text-foreground">Phone Number</label>
                       <Input
                         placeholder="Enter your phone number"
                         value={formData.phone}
                         onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                        className="bg-slate-900/50 border-slate-600 text-white placeholder:text-gray-400 focus:border-neon-cyan-500 transition-colors"
+                        className="bg-background border-input text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors"
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-gray-300 font-futuristic">Service Interest</label>
+                      <label className="text-sm font-medium text-foreground">Service Interest</label>
                       <Select onValueChange={(value) => setFormData({...formData, service: value})}>
-                        <SelectTrigger className="bg-slate-900/50 border-slate-600 text-white focus:border-neon-cyan-500">
+                        <SelectTrigger className="bg-background border-input text-foreground focus:border-primary focus:ring-2 focus:ring-primary/20">
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
-                        <SelectContent className="bg-slate-800 border-slate-600">
+                        <SelectContent className="bg-card border-border">
                           <SelectItem value="product-solutions">Product-Based Solutions</SelectItem>
                           <SelectItem value="service-solutions">Service-Based Solutions</SelectItem>
                           <SelectItem value="digital-marketing">Digital Marketing</SelectItem>
@@ -158,13 +188,13 @@ export const ContactSection = () => {
 
                   {/* Message */}
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300 font-futuristic">Project Details</label>
+                    <label className="text-sm font-medium text-foreground">Project Details</label>
                     <Textarea
                       placeholder="Tell us about your project, goals, or questions..."
                       rows={5}
                       value={formData.message}
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
-                      className="bg-slate-900/50 border-slate-600 text-white placeholder:text-gray-400 focus:border-neon-cyan-500 transition-colors resize-none"
+                      className="bg-background border-input text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors resize-none"
                     />
                   </div>
 
@@ -172,7 +202,7 @@ export const ContactSection = () => {
                   <Button 
                     type="submit"
                     size="lg" 
-                    className="w-full bg-gradient-to-r from-neon-cyan-500 to-cyber-blue-600 hover:from-neon-cyan-600 hover:to-cyber-blue-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-xl hover:shadow-neon-cyan-500/40"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-primary/25"
                   >
                     Send Message & Get Free Quote
                     <Send className="ml-2 h-5 w-5" />

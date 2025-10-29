@@ -138,6 +138,48 @@ export default {
 				'pulse-glow': {
 					'0%, 100%': { boxShadow: '0 0 20px hsl(var(--primary) / 0.3)' },
 					'50%': { boxShadow: '0 0 30px hsl(var(--primary) / 0.5)' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-20px)' }
+				},
+				'glow': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.8' }
+				},
+				'shimmer': {
+					'0%': { transform: 'translateX(-100%)' },
+					'100%': { transform: 'translateX(100%)' }
+				},
+				'blob': {
+					'0%': { transform: 'translate(0px, 0px) scale(1)' },
+					'33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+					'66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+					'100%': { transform: 'translate(0px, 0px) scale(1)' }
+				},
+				'spin-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
+				},
+				'pulse-slow': {
+					'0%, 100%': { opacity: '0.3', transform: 'scale(1)' },
+					'50%': { opacity: '0.8', transform: 'scale(1.05)' }
+				},
+				'aurora-1': {
+					'0%, 100%': { transform: 'translateY(-100%) rotate(0deg)' },
+					'50%': { transform: 'translateY(0%) rotate(180deg)' }
+				},
+				'aurora-2': {
+					'0%, 100%': { transform: 'translateY(100%) rotate(0deg)' },
+					'50%': { transform: 'translateY(0%) rotate(-180deg)' }
+				},
+				'aurora-3': {
+					'0%, 100%': { transform: 'translateX(-100%) rotate(0deg)' },
+					'50%': { transform: 'translateX(0%) rotate(180deg)' }
+				},
+				'aurora-4': {
+					'0%, 100%': { transform: 'translateX(100%) rotate(0deg)' },
+					'50%': { transform: 'translateX(0%) rotate(-180deg)' }
 				}
 			},
 			animation: {
@@ -148,7 +190,17 @@ export default {
 				'scale-in': 'scale-in 0.5s ease-out',
 				'slide-in': 'slide-in 0.6s ease-out',
 				'gentle-bounce': 'gentle-bounce 2s ease-in-out infinite',
-				'pulse-glow': 'pulse-glow 3s ease-in-out infinite'
+				'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
+				'float': 'float 6s ease-in-out infinite',
+				'glow': 'glow 3s ease-in-out infinite',
+				'shimmer': 'shimmer 2s ease-in-out infinite',
+				'blob': 'blob 7s ease-in-out infinite',
+				'spin-slow': 'spin-slow 20s linear infinite',
+				'pulse-slow': 'pulse-slow 4s ease-in-out infinite',
+				'aurora-1': 'aurora-1 15s ease-in-out infinite',
+				'aurora-2': 'aurora-2 18s ease-in-out infinite',
+				'aurora-3': 'aurora-3 12s ease-in-out infinite',
+				'aurora-4': 'aurora-4 14s ease-in-out infinite'
 			},
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
@@ -157,5 +209,30 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		require("tailwindcss-animate"),
+		function({ addUtilities }: { addUtilities: any }) {
+			const newUtilities = {
+				'.animation-delay-2000': {
+					'animation-delay': '2s'
+				},
+				'.animation-delay-4000': {
+					'animation-delay': '4s'
+				},
+				'.animation-delay-6000': {
+					'animation-delay': '6s'
+				},
+				'.animation-delay-8000': {
+					'animation-delay': '8s'
+				},
+				'.animation-delay-10000': {
+					'animation-delay': '10s'
+				},
+				'.animation-delay-3000': {
+					'animation-delay': '3s'
+				}
+			};
+			addUtilities(newUtilities);
+		}
+	],
 } satisfies Config;

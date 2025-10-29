@@ -1,4 +1,4 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -14,13 +14,28 @@ const navItems = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleNavigation = (path: string) => {
+    // Close mobile menu if open
+    if (open) {
+      setOpen(false);
+    }
+    // Navigate to the new route
+    navigate(path);
+  };
 
   return (
-    <header className="sticky top-0 z-50">
+    <header className="sticky top-0 z-40">
       <div className="bg-background/60 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 border-b border-border/60">
         <nav className="container max-w-6xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
-            <Link to="/" className="flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-3">
+              <img 
+                src="/logo.jpeg" 
+                alt="Zidi Digital Solutions Logo" 
+                className="h-10 w-auto object-contain"
+              />
               <span className="text-lg font-bold tracking-tight bg-gradient-primary bg-clip-text text-transparent">
                 Zidi Digital Solutions
               </span>
@@ -32,8 +47,12 @@ export default function Navbar() {
                 <li key={item.to}>
                   <NavLink
                     to={item.to}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavigation(item.to);
+                    }}
                     className={({ isActive }) =>
-                      `text-sm transition-colors story-link ${
+                      `text-sm transition-colors story-link cursor-pointer ${
                         isActive ? "text-primary" : "text-muted-foreground hover:text-foreground"
                       }`
                     }
@@ -71,9 +90,12 @@ export default function Navbar() {
                   <li key={item.to}>
                     <NavLink
                       to={item.to}
-                      onClick={() => setOpen(false)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavigation(item.to);
+                      }}
                       className={({ isActive }) =>
-                        `block px-2 py-2 rounded-md transition-colors ${
+                        `block px-2 py-2 rounded-md transition-colors cursor-pointer ${
                           isActive ? "text-primary bg-secondary" : "text-muted-foreground hover:text-foreground"
                         }`
                       }

@@ -7,12 +7,23 @@ export default function Footer() {
       <div className="container max-w-6xl mx-auto px-6 py-12">
         <div className="grid md:grid-cols-4 gap-8 mb-10">
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">Zidi Digital Solutions</h3>
+            <div className="flex items-center gap-3 mb-4">
+              <img 
+                src="/logo.jpeg" 
+                alt="Zidi Digital Solutions Logo" 
+                className="h-12 w-auto object-contain"
+              />
+              <h3 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">Zidi Digital Solutions</h3>
+            </div>
             <p className="text-muted-foreground mt-3 max-w-md">
               Empowering the digital future with product innovation, service excellence, and next‑gen talent development.
             </p>
-            <a href="mailto:zididigitals@gmail.com" className="inline-flex items-center gap-2 text-sm text-foreground mt-4">
-              <Mail className="h-4 w-4" /> zididigitals@gmail.com
+            <a 
+              href="mailto:zididigitals@gmail.com" 
+              className="inline-flex items-center gap-2 text-sm text-foreground mt-4 hover:text-primary transition-colors group"
+            >
+              <Mail className="h-4 w-4 group-hover:scale-110 transition-transform" /> 
+              <span className="group-hover:underline">Contact via Email</span>
             </a>
           </div>
 
