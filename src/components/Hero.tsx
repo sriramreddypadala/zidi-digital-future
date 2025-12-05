@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export const Hero = () => {
   return (
-    <CSSAnimatedBackground variant="gradient-flow" className="relative min-h-screen flex items-center justify-center">
+    <CSSAnimatedBackground variant="gradient-flow" className="relative min-h-screen flex items-center justify-center pt-16 md:pt-20">
       {/* Additional animated elements */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-xl animate-float"></div>
       <div className="absolute bottom-20 right-10 w-40 h-40 bg-accent/10 rounded-full blur-xl animate-float animation-delay-2000"></div>
