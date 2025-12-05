@@ -1,7 +1,7 @@
 import { useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Target, Lightbulb, BarChart3, Cloud, Palette, Route } from "lucide-react";
+import { Target, Lightbulb, BarChart3, Cloud, Palette, Route, Compass, BookOpen, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Consultancy() {
@@ -101,15 +101,30 @@ export default function Consultancy() {
           <CardHeader>
             <CardTitle>What We Offer</CardTitle>
           </CardHeader>
-          <CardContent>
-            <ul className="grid sm:grid-cols-2 gap-3 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2"><Target className="h-4 w-4 text-accent"/> Business Strategy & Digital Transformation</li>
-              <li className="flex items-center gap-2"><Lightbulb className="h-4 w-4 text-accent"/> Technology Stack Consultation</li>
-              <li className="flex items-center gap-2"><Route className="h-4 w-4 text-accent"/> Product & MVP Roadmapping</li>
-              <li className="flex items-center gap-2"><Palette className="h-4 w-4 text-accent"/> UI/UX Audit & Enhancement</li>
-              <li className="flex items-center gap-2"><Cloud className="h-4 w-4 text-accent"/> Cloud Infrastructure & Scalability</li>
-              <li className="flex items-center gap-2"><BarChart3 className="h-4 w-4 text-accent"/> Data‑backed Decision Making</li>
-            </ul>
+          <CardContent className="space-y-6">
+            <div>
+              <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                <Target className="h-4 w-4 text-accent"/> Business Consultancy
+              </h4>
+              <ul className="grid sm:grid-cols-2 gap-3 text-sm text-muted-foreground">
+                <li className="flex items-center gap-2"><Lightbulb className="h-4 w-4 text-primary"/> Business Strategy & Digital Transformation</li>
+                <li className="flex items-center gap-2"><Lightbulb className="h-4 w-4 text-primary"/> Technology Stack Consultation</li>
+                <li className="flex items-center gap-2"><Route className="h-4 w-4 text-primary"/> Product & MVP Roadmapping</li>
+                <li className="flex items-center gap-2"><Palette className="h-4 w-4 text-primary"/> UI/UX Audit & Enhancement</li>
+                <li className="flex items-center gap-2"><Cloud className="h-4 w-4 text-primary"/> Cloud Infrastructure & Scalability</li>
+                <li className="flex items-center gap-2"><BarChart3 className="h-4 w-4 text-primary"/> Data‑backed Decision Making</li>
+              </ul>
+            </div>
+            <div className="border-t pt-4">
+              <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                <Compass className="h-4 w-4 text-accent"/> Career Guidance for Students
+              </h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-center gap-2"><BookOpen className="h-4 w-4 text-primary"/> Career Path Planning & Mentorship</li>
+                <li className="flex items-center gap-2"><BookOpen className="h-4 w-4 text-primary"/> Skill Development & Portfolio Building</li>
+                <li className="flex items-center gap-2"><Users className="h-4 w-4 text-primary"/> Interview Preparation & Job Search Strategies</li>
+              </ul>
+            </div>
           </CardContent>
         </Card>
 
@@ -117,18 +132,30 @@ export default function Consultancy() {
           <CardHeader>
             <CardTitle>Why Our Consultancy Works</CardTitle>
           </CardHeader>
-          <CardContent>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>Decades of combined industry experience</li>
-              <li>Proven track record with startups & enterprises</li>
-              <li>Actionable plans with measurable outcomes</li>
-              <li>End‑to‑end support through implementation</li>
-            </ul>
+          <CardContent className="space-y-4">
+            <div>
+              <h4 className="font-semibold text-foreground mb-2">For Businesses:</h4>
+              <ul className="space-y-1 text-sm text-muted-foreground">
+                <li>✓ Decades of combined industry experience</li>
+                <li>✓ Proven track record with startups & enterprises</li>
+                <li>✓ Actionable plans with measurable outcomes</li>
+                <li>✓ End‑to‑end support through implementation</li>
+              </ul>
+            </div>
+            <div className="border-t pt-4">
+              <h4 className="font-semibold text-foreground mb-2">For Students:</h4>
+              <ul className="space-y-1 text-sm text-muted-foreground">
+                <li>✓ Personalized guidance from industry experts</li>
+                <li>✓ Practical insights into real-world career paths</li>
+                <li>✓ Networking opportunities with professionals</li>
+                <li>✓ Comprehensive support for career success</li>
+              </ul>
+            </div>
           </CardContent>
         </Card>
       </section>
 
-      <section className="container max-w-6xl mx-auto px-6 pb-20">
+      <section className="container max-w-6xl mx-auto px-6 py-16">
         <h2 className="text-2xl font-semibold">How It Works</h2>
         <div className="mt-6 grid md:grid-cols-3 gap-6">
           {[
@@ -143,6 +170,7 @@ export default function Consultancy() {
           ))}
         </div>
       </section>
+
     </main>
   );
 }

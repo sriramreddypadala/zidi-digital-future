@@ -28,20 +28,28 @@ export default function Contact() {
         "logo": "https://zididigitals.com/logo.jpeg",
         "contactPoint": {
           "@type": "ContactPoint",
-          "telephone": "+91 7416 665 003",
+          "telephone": "+91 9151270999",
           "contactType": "customer service",
           "email": "zididigitals@gmail.com",
           "availableLanguage": ["English", "Hindi", "Telugu"],
-          "hoursAvailable": "Mo-Fr 09:00-18:00"
+          "hoursAvailable": "Mo-Sa 09:00-18:00"
         },
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Hyderabad",
-          "addressLocality": "Hyderabad",
-          "addressRegion": "Telangana",
-          "postalCode": "500001",
-          "addressCountry": "IN"
-        }
+        "address": [
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "Hyderabad",
+            "addressLocality": "Hyderabad",
+            "addressRegion": "Telangana",
+            "addressCountry": "IN"
+          },
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "Palakollu",
+            "addressLocality": "Palakollu",
+            "addressRegion": "Andhra Pradesh",
+            "addressCountry": "IN"
+          }
+        ]
       }
     }
   });

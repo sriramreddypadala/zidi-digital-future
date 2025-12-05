@@ -1,10 +1,11 @@
 import { useSEO } from "@/hooks/useSEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Quote, Award, Rocket, Calendar, TrendingUp, Target, Users, Lightbulb, Code, Briefcase, Linkedin, Twitter, Mail, ChevronDown, ChevronUp, ExternalLink } from "lucide-react";
+import { Quote, Award, Rocket, Calendar, TrendingUp, Target, Users, Lightbulb, Code, Briefcase, Linkedin, Mail, ChevronDown, ChevronUp, ExternalLink, X } from "lucide-react";
 import { useState } from "react";
 
 export default function About() {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [selectedTeamMember, setSelectedTeamMember] = useState<string | null>(null);
 
   useSEO({
     title: "About Divyesh Bondapalli – Founder of Zidi Digital Solutions | Our Journey",
@@ -97,9 +98,9 @@ export default function About() {
             <div className="lg:sticky lg:top-24">
               <div className="rounded-xl border border-border bg-card shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
                 <img 
-                  src="/divyesh-bondapalli.jpg" 
+                  src="/src/media/IMG-20251205-WA0008.jpg" 
                   alt="Divyesh Bondapalli – Founder & CEO of Zidi Digital Solutions | Young Entrepreneur India" 
-                  className="w-full h-64 object-cover object-center rounded-lg"
+                  className="w-full h-80 object-contain object-top rounded-lg"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                     e.currentTarget.parentElement!.innerHTML = '<div class="w-full h-64 rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center"><div class="text-4xl font-bold text-primary">DB</div></div>';
@@ -114,10 +115,6 @@ export default function About() {
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-muted-foreground">Role</span>
                     <span className="font-medium text-accent">CEO & Founder</span>
-                  </div>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-muted-foreground">Education</span>
-                    <span className="font-medium">B.Tech CSE</span>
                   </div>
                 </div>
               </div>
@@ -571,8 +568,14 @@ export default function About() {
       </section>
 
       {/* Our Team Section */}
-      <section className="py-20 bg-background">
-        <div className="container max-w-6xl mx-auto px-6">
+      <section className="py-20 bg-background relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }}></div>
+        </div>
+
+        <div className="container max-w-6xl mx-auto px-6 relative z-10">
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
@@ -583,133 +586,76 @@ export default function About() {
             </p>
           </div>
 
-          {/* Team Cards */}
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {/* Ganesh Reddy - CTO */}
-            <Card className="group bg-card border-border hover:border-primary/20 transition-all duration-300 shadow-lg hover:shadow-primary/20 animate-scale-in">
-              <CardContent className="p-8">
-                <div className="flex flex-col items-center text-center">
-                  {/* Avatar */}
-                  <div className="relative mb-6">
-                    <div className="w-32 h-32 rounded-full bg-gradient-to-br from-blue-500 to-teal-500 p-1">
-                      <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
-                        <img 
-                          src="src/media/male.jpg" 
-                          alt="Ganesh Reddy - CTO" 
-                          className="w-full h-full rounded-full object-cover"
-                          onError={(e) => {
-                            // Fallback to initials if image not found
-                            e.currentTarget.style.display = 'none';
-                            e.currentTarget.parentElement!.innerHTML = '<div class="text-3xl font-bold text-primary">GR</div>';
-                          }}
-                        />
-                      </div>
+          {/* Team Grid */}
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {/* Divyesh - CEO */}
+            <div className="group cursor-pointer" onClick={() => setSelectedTeamMember("divyesh")}>
+              <div className="relative mb-6 flex justify-center">
+                <div className="relative">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 p-1 transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
+                    <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
+                      <img src="/src/media/team/ceo.jpg" alt="Divyesh Bondapalli" className="w-full h-full object-cover" />
                     </div>
-                    {/* Status Indicator */}
-                    <div className="absolute bottom-2 right-2 w-4 h-4 bg-success rounded-full border-2 border-background"></div>
                   </div>
-
-                  {/* Role Badge */}
-                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-4">
-                    <Code className="h-3 w-3 mr-1" />
-                    Chief Technology Officer
-                  </div>
-
-                  {/* Name */}
-                  <h3 className="text-2xl font-bold text-foreground mb-2">Ganesh Reddy</h3>
-                  
-                  {/* Description */}
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Visionary technology leader with expertise in scalable architecture and innovation. 
-                    Ganesh drives our technical excellence and ensures cutting-edge solutions that transform 
-                    businesses into digital leaders.
-                  </p>
-
-                  {/* Expertise Tags */}
-                  <div className="flex flex-wrap gap-2 justify-center mb-6">
-                    <span className="px-3 py-1 bg-blue-500/10 text-blue-600 text-xs rounded-full">Architecture</span>
-                    <span className="px-3 py-1 bg-teal-500/10 text-teal-600 text-xs rounded-full">Cloud Tech</span>
-                    <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Innovation</span>
-                  </div>
-
-                  {/* Social Links */}
-                  <div className="flex items-center space-x-3">
-                    <button className="p-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
-                      <Linkedin className="h-4 w-4" />
-                    </button>
-                    <button className="p-2 rounded-lg bg-accent/10 text-accent hover:bg-accent/20 transition-colors">
-                      <Twitter className="h-4 w-4" />
-                    </button>
-                    <button className="p-2 rounded-lg bg-success/10 text-success hover:bg-success/20 transition-colors">
-                      <Mail className="h-4 w-4" />
-                    </button>
-                  </div>
+                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+              <div className="text-center">
+                <h3 className="text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">Divyesh Bondapalli</h3>
+                <p className="text-sm font-medium text-primary mb-2">CEO & Founder</p>
+                <p className="text-sm text-muted-foreground line-clamp-2 group-hover:text-foreground transition-colors duration-300">Vision-driven founder leading company strategy and innovation.</p>
+                <div className="mt-4 inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-100 scale-95">
+                  View Profile →
+                </div>
+              </div>
+            </div>
 
             {/* P. Neelambika - COO */}
-            <Card className="group bg-card border-border hover:border-accent/20 transition-all duration-300 shadow-lg hover:shadow-accent/20 animate-scale-in" style={{animationDelay: '0.2s'}}>
-              <CardContent className="p-8">
-                <div className="flex flex-col items-center text-center">
-                  {/* Avatar */}
-                  <div className="relative mb-6">
-                    <div className="w-32 h-32 rounded-full bg-gradient-to-br from-purple-500 to-silver-500 p-1">
-                      <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
-                        <img 
-                          src="src/media/female.jpg" 
-                          alt="P. Neelambika – COO of Zidi Digital Solutions | Business Operations Manager India" 
-                          className="w-full h-full rounded-full object-cover"
-                          onError={(e) => {
-                            // Fallback to initials if image not found
-                            e.currentTarget.style.display = 'none';
-                            e.currentTarget.parentElement!.innerHTML = '<div class="text-3xl font-bold text-accent">PN</div>';
-                          }}
-                        />
-                      </div>
+            <div className="group cursor-pointer" onClick={() => setSelectedTeamMember("neelambika")}>
+              <div className="relative mb-6 flex justify-center">
+                <div className="relative">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-1 transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
+                    <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
+                      <img src="/src/media/team/coo.jpg" alt="P. Neelambika" className="w-full h-full object-cover" />
                     </div>
-                    {/* Status Indicator */}
-                    <div className="absolute bottom-2 right-2 w-4 h-4 bg-success rounded-full border-2 border-background"></div>
                   </div>
-
-                  {/* Role Badge */}
-                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-medium mb-4">
-                    <Briefcase className="h-3 w-3 mr-1" />
-                    Chief Operating Officer
-                  </div>
-
-                  {/* Name */}
-                  <h3 className="text-2xl font-bold text-foreground mb-2">P. Neelambika</h3>
-                  
-                  {/* Description */}
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Strategic operations expert with exceptional leadership and communication skills. 
-                    Neelambika ensures seamless execution of our vision and builds high-performing teams 
-                    that deliver exceptional results.
-                  </p>
-
-                  {/* Expertise Tags */}
-                  <div className="flex flex-wrap gap-2 justify-center mb-6">
-                    <span className="px-3 py-1 bg-purple-500/10 text-purple-600 text-xs rounded-full">Operations</span>
-                    <span className="px-3 py-1 bg-silver-500/10 text-gray-600 text-xs rounded-full">Strategy</span>
-                    <span className="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">Leadership</span>
-                  </div>
-
-                  {/* Social Links */}
-                  <div className="flex items-center space-x-3">
-                    <button className="p-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
-                      <Linkedin className="h-4 w-4" />
-                    </button>
-                    <button className="p-2 rounded-lg bg-accent/10 text-accent hover:bg-accent/20 transition-colors">
-                      <Twitter className="h-4 w-4" />
-                    </button>
-                    <button className="p-2 rounded-lg bg-success/10 text-success hover:bg-success/20 transition-colors">
-                      <Mail className="h-4 w-4" />
-                    </button>
-                  </div>
+                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-accent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+              <div className="text-center">
+                <h3 className="text-xl font-bold text-foreground mb-1 group-hover:text-accent transition-colors duration-300">Neelambika</h3>
+                <p className="text-sm font-medium text-accent mb-2">Chief Operating Officer</p>
+                <p className="text-sm text-muted-foreground line-clamp-2 group-hover:text-foreground transition-colors duration-300">Operations expert ensuring smooth execution across departments.</p>
+                <div className="mt-4 inline-flex items-center px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-100 scale-95">
+                  View Profile →
+                </div>
+              </div>
+            </div>
+
+            {/* Ganesh Reddy - CTO */}
+            <div className="group cursor-pointer" onClick={() => setSelectedTeamMember("ganesh")}>
+              <div className="relative mb-6 flex justify-center">
+                <div className="relative">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-teal-500 p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-blue-500 to-teal-500 p-1 transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
+                    <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
+                      <img src="/src/media/team/cto.jpg" alt="Ganesh Reddy" className="w-full h-full object-cover" />
+                    </div>
+                  </div>
+                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+              </div>
+              <div className="text-center">
+                <h3 className="text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">Ganesh</h3>
+                <p className="text-sm font-medium text-primary mb-2">Chief Technology Officer</p>
+                <p className="text-sm text-muted-foreground line-clamp-2 group-hover:text-foreground transition-colors duration-300">Technical visionary driving product engineering and architecture.</p>
+                <div className="mt-4 inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-100 scale-95">
+                  View Profile →
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Team Stats */}
@@ -717,12 +663,237 @@ export default function About() {
             <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20">
               <Users className="h-5 w-5 text-primary mr-2" />
               <span className="text-primary text-sm font-medium">
-                15+ Team Members • 50+ Years Combined Experience • 100% Client Satisfaction
+                15+ Team Members • 100% Client Satisfaction
               </span>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Portfolio Panel Modal */}
+      {selectedTeamMember && (
+        <>
+          <div className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm transition-opacity duration-300 animate-fade-in" onClick={() => setSelectedTeamMember(null)}></div>
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto">
+            <div className="relative w-full max-w-2xl animate-scale-up my-8" onClick={(e) => e.stopPropagation()}>
+              <div className="relative bg-background/80 backdrop-blur-xl border border-white/10 rounded-3xl shadow-2xl overflow-hidden">
+                <div className={`absolute inset-0 ${selectedTeamMember === "divyesh" ? "bg-gradient-to-br from-blue-500/5 to-cyan-500/5" : selectedTeamMember === "ganesh" ? "bg-gradient-to-br from-blue-500/5 to-teal-500/5" : "bg-gradient-to-br from-purple-500/5 to-pink-500/5"} pointer-events-none`}></div>
+                
+                <button onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setSelectedTeamMember(null);
+                }} className="absolute top-6 right-6 z-20 p-2 rounded-full bg-white/10 hover:bg-white/20 text-foreground transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-white/20 group cursor-pointer">
+                  <X className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                </button>
+
+                <div className="relative z-10 p-8 md:p-12 max-h-[85vh] overflow-y-auto">
+                  {selectedTeamMember === "divyesh" && (
+                    <>
+                      <div className="flex justify-center mb-8">
+                        <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 p-1 shadow-lg overflow-hidden">
+                          <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
+                            <video 
+                              autoPlay 
+                              loop 
+                              muted 
+                              playsInline
+                              className="w-full h-full object-cover"
+                            >
+                              <source src="/src/media/team/CEO-ANI.mp4" type="video/mp4" />
+                            </video>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-center mb-8">
+                        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2">Divyesh Bondapalli</h2>
+                        <p className="text-lg font-semibold bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent mb-3">CEO & Founder</p>
+                      </div>
+                      <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8"></div>
+                      
+                      <div className="space-y-6">
+                        <div>
+                          <h3 className="text-sm font-bold uppercase tracking-wider text-foreground/70 mb-3">About</h3>
+                          <p className="text-sm text-muted-foreground leading-relaxed">A vision-driven founder leading the company with a strong focus on innovation, strategy, and long-term growth.</p>
+                        </div>
+
+                        <div>
+                          <h3 className="text-sm font-bold uppercase tracking-wider text-foreground/70 mb-3">Core Responsibilities</h3>
+                          <ul className="space-y-2">
+                            {["Defines the company's mission, vision, and multi-year strategy", "Leads decision-making across product, business, and operations", "Builds partnerships and guides overall business expansion", "Ensures alignment between all departments and company objectives", "Drives innovation and maintains a high-performance culture"].map((resp, idx) => (
+                              <li key={idx} className="flex items-start gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 group/item">
+                                <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 mt-2 group-hover/item:scale-150 transition-transform duration-300"></span>
+                                <span>{resp}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <div>
+                          <h3 className="text-sm font-bold uppercase tracking-wider text-foreground/70 mb-3">Skills</h3>
+                          <div className="flex flex-wrap gap-2">
+                            {["Strategic Planning & Leadership", "Web Development", "Data Visualization", "Team Management", "Creative Thinking & Quick Learning", "Communication & Decision-making"].map((skill, idx) => (
+                              <span key={idx} className="px-3 py-1.5 rounded-full bg-gradient-to-r from-blue-500/10 to-cyan-500/10 text-sm font-medium text-foreground border border-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 cursor-default">
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div>
+                          <h3 className="text-sm font-bold uppercase tracking-wider text-foreground/70 mb-3">Strengths</h3>
+                          <ul className="space-y-2">
+                            {["Visionary mindset", "Strong leadership presence", "Ability to execute ideas into real products"].map((strength, idx) => (
+                              <li key={idx} className="flex items-start gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 group/item">
+                                <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 mt-2 group-hover/item:scale-150 transition-transform duration-300"></span>
+                                <span>{strength}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </>
+                  )}
+
+                  {selectedTeamMember === "ganesh" && (
+                    <>
+                      <div className="flex justify-center mb-8">
+                        <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-blue-500 to-teal-500 p-1 shadow-lg overflow-hidden">
+                          <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
+                            <video 
+                              autoPlay 
+                              loop 
+                              muted 
+                              playsInline
+                              className="w-full h-full object-cover"
+                            >
+                              <source src="/src/media/team/CTO-ANI.mp4" type="video/mp4" />
+                            </video>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-center mb-8">
+                        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2">Ganesh Reddy</h2>
+                        <p className="text-lg font-semibold bg-gradient-to-r from-blue-500 to-teal-500 bg-clip-text text-transparent mb-3">Chief Technology Officer</p>
+                      </div>
+                      <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8"></div>
+                      
+                      <div className="space-y-6">
+                        <div>
+                          <h3 className="text-sm font-bold uppercase tracking-wider text-foreground/70 mb-3">About</h3>
+                          <p className="text-sm text-muted-foreground leading-relaxed">Technology leader responsible for building robust systems, guiding engineering teams, and shaping the product's technical future.</p>
+                        </div>
+
+                        <div>
+                          <h3 className="text-sm font-bold uppercase tracking-wider text-foreground/70 mb-3">Core Responsibilities</h3>
+                          <ul className="space-y-2">
+                            {["Defines and executes the technology roadmap", "Designs architecture for scalable products & systems", "Oversees engineering teams and code quality", "Ensures platform security, optimization, and reliability", "Implements backend systems, APIs, and cloud infrastructure", "Drives innovation in emerging technologies"].map((resp, idx) => (
+                              <li key={idx} className="flex items-start gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 group/item">
+                                <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-500 to-teal-500 mt-2 group-hover/item:scale-150 transition-transform duration-300"></span>
+                                <span>{resp}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <div>
+                          <h3 className="text-sm font-bold uppercase tracking-wider text-foreground/70 mb-3">Skills</h3>
+                          <div className="flex flex-wrap gap-2">
+                            {["Full-Stack Development", "System Architecture & API Design", "Cloud Computing & DevOps", "Technical Problem-Solving", "Debugging & Optimization", "Team Leadership & Mentoring"].map((skill, idx) => (
+                              <span key={idx} className="px-3 py-1.5 rounded-full bg-gradient-to-r from-blue-500/10 to-teal-500/10 text-sm font-medium text-foreground border border-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 cursor-default">
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div>
+                          <h3 className="text-sm font-bold uppercase tracking-wider text-foreground/70 mb-3">Strengths</h3>
+                          <ul className="space-y-2">
+                            {["Deep technical expertise", "Ability to build scalable, future-proof systems", "Strong engineering leadership"].map((strength, idx) => (
+                              <li key={idx} className="flex items-start gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 group/item">
+                                <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-500 to-teal-500 mt-2 group-hover/item:scale-150 transition-transform duration-300"></span>
+                                <span>{strength}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </>
+                  )}
+
+                  {selectedTeamMember === "neelambika" && (
+                    <>
+                      <div className="flex justify-center mb-8">
+                        <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-1 shadow-lg overflow-hidden">
+                          <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
+                            <video 
+                              autoPlay 
+                              loop 
+                              muted 
+                              playsInline
+                              className="w-full h-full object-cover"
+                            >
+                              <source src="/src/media/team/COO-ANI.mp4" type="video/mp4" />
+                            </video>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-center mb-8">
+                        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2">P. Neelambika</h2>
+                        <p className="text-lg font-semibold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent mb-3">Chief Operating Officer</p>
+                      </div>
+                      <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8"></div>
+                      
+                      <div className="space-y-6">
+                        <div>
+                          <h3 className="text-sm font-bold uppercase tracking-wider text-foreground/70 mb-3">About</h3>
+                          <p className="text-sm text-muted-foreground leading-relaxed">Operations specialist focused on smooth coordination, workflow efficiency, and executing organizational processes with precision.</p>
+                        </div>
+
+                        <div>
+                          <h3 className="text-sm font-bold uppercase tracking-wider text-foreground/70 mb-3">Core Responsibilities</h3>
+                          <ul className="space-y-2">
+                            {["Manages day-to-day operations across departments", "Ensures smooth workflow and efficient process execution", "Supports project management and cross-team collaboration", "Enhances organizational standards and productivity", "Maintains operational quality and team coordination"].map((resp, idx) => (
+                              <li key={idx} className="flex items-start gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 group/item">
+                                <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 mt-2 group-hover/item:scale-150 transition-transform duration-300"></span>
+                                <span>{resp}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <div>
+                          <h3 className="text-sm font-bold uppercase tracking-wider text-foreground/70 mb-3">Skills</h3>
+                          <div className="flex flex-wrap gap-2">
+                            {["Communication & Coordination", "Operational Planning", "Adaptability & Flexibility", "Problem-Solving", "Basics of C, Java, and Python", "Process Management"].map((skill, idx) => (
+                              <span key={idx} className="px-3 py-1.5 rounded-full bg-gradient-to-r from-purple-500/10 to-pink-500/10 text-sm font-medium text-foreground border border-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 cursor-default">
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div>
+                          <h3 className="text-sm font-bold uppercase tracking-wider text-foreground/70 mb-3">Strengths</h3>
+                          <ul className="space-y-2">
+                            {["Highly organized and reliable", "Strong communication presence", "Efficient in team coordination and execution"].map((strength, idx) => (
+                              <li key={idx} className="flex items-start gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 group/item">
+                                <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 mt-2 group-hover/item:scale-150 transition-transform duration-300"></span>
+                                <span>{strength}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </main>
   );
 }

@@ -23,15 +23,15 @@ export const ContactSection = () => {
   const contactInfo = [
     {
       icon: MapPin,
-      label: "Visit Our Office",
-      value: "Coimbatore, Tamil Nadu",
+      label: "Visit Our Offices",
+      value: "Hyderabad, Telangana & Palakollu, Andhra Pradesh",
       action: null
     },
     {
       icon: Phone,
       label: "Call Us",
-      value: "+91 7416 665 003",
-      action: () => window.open('tel:+917416665003', '_self')
+      value: "+91 9151270999",
+      action: () => window.open('tel:+919151270999', '_self')
     },
     {
       icon: Mail,

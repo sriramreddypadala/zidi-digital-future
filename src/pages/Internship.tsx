@@ -1,7 +1,7 @@
 import { useSEO } from "@/hooks/useSEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { GraduationCap, Star } from "lucide-react";
+import { GraduationCap, Code, Palette, TrendingUp, Smartphone, Database } from "lucide-react";
 
 export default function Internship() {
   useSEO({
@@ -76,12 +76,14 @@ export default function Internship() {
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>Testimonials</CardTitle>
+            <CardTitle>Recent Best Courses</CardTitle>
           </CardHeader>
           <CardContent className="text-sm text-muted-foreground flex flex-col gap-4">
-            {[1,2].map((i) => (
-              <p key={i} className="flex items-start gap-2"><Star className="h-4 w-4 text-accent mt-1"/> “Great mentorship and real‑world exposure!”</p>
-            ))}
+            <div className="flex items-start gap-2"><Code className="h-4 w-4 text-accent"/> Web Development - Learn to build scalable and efficient web applications</div>
+            <div className="flex items-start gap-2"><Palette className="h-4 w-4 text-accent"/> UI/UX Design - Create visually stunning and user-friendly interfaces</div>
+            <div className="flex items-start gap-2"><TrendingUp className="h-4 w-4 text-accent"/> Digital Marketing - Master the art of online marketing and grow your business</div>
+            <div className="flex items-start gap-2"><Smartphone className="h-4 w-4 text-accent"/> Mobile App Development - Build mobile apps that engage and retain users</div>
+            <div className="flex items-start gap-2"><Database className="h-4 w-4 text-accent"/> Backend & Databases - Learn to design and implement robust backend systems</div>
           </CardContent>
         </Card>
       </section>
