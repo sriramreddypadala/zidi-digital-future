@@ -2,6 +2,14 @@ import { useSEO } from "@/hooks/useSEO";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Quote, Award, Rocket, Calendar, TrendingUp, Target, Users, Lightbulb, Code, Briefcase, Linkedin, Mail, ChevronDown, ChevronUp, ExternalLink, X } from "lucide-react";
 import { useState } from "react";
+import founder from "@/media/IMG-20251205-WA0008.jpg";
+import ceoImage from "@/media/team/ceo.jpg";
+import cooImage from "@/media/team/coo.jpg";
+import ctoImage from "@/media/team/cto.jpg";
+import ceoAnimation from "@/media/team/CEO-ANI.mp4";
+import ctoAnimation from "@/media/team/CTO-ANI.mp4";
+import cooAnimation from "@/media/team/COO-ANI.mp4";
+
 
 export default function About() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -98,7 +106,7 @@ export default function About() {
             <div className="lg:sticky lg:top-24">
               <div className="rounded-xl border border-border bg-card shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
                 <img 
-                  src="/src/media/IMG-20251205-WA0008.jpg" 
+                  src={founder}
                   alt="Divyesh Bondapalli – Founder & CEO of Zidi Digital Solutions | Young Entrepreneur India" 
                   className="w-full h-80 object-contain object-top rounded-lg"
                   onError={(e) => {
@@ -595,7 +603,7 @@ export default function About() {
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 p-1 transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
                     <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
-                      <img src="/src/media/team/ceo.jpg" alt="Divyesh Bondapalli" className="w-full h-full object-cover" />
+                      <img src={ceoImage} alt="Divyesh Bondapalli" className="w-full h-full object-cover" />
                     </div>
                   </div>
                   <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -618,7 +626,7 @@ export default function About() {
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-1 transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
                     <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
-                      <img src="/src/media/team/coo.jpg" alt="P. Neelambika" className="w-full h-full object-cover" />
+                      <img src={cooImage} alt="P. Neelambika" className="w-full h-full object-cover" />
                     </div>
                   </div>
                   <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-accent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -641,7 +649,7 @@ export default function About() {
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-teal-500 p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-blue-500 to-teal-500 p-1 transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
                     <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
-                      <img src="/src/media/team/cto.jpg" alt="Ganesh Reddy" className="w-full h-full object-cover" />
+                      <img src={ctoImage}  alt="Ganesh" className="w-full h-full object-cover" />
                     </div>
                   </div>
                   <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -700,7 +708,7 @@ export default function About() {
                               playsInline
                               className="w-full h-full object-cover"
                             >
-                              <source src="/src/media/team/CEO-ANI.mp4" type="video/mp4" />
+                              <source src={ceoAnimation} type="video/mp4" />
                             </video>
                           </div>
                         </div>
@@ -767,7 +775,7 @@ export default function About() {
                               playsInline
                               className="w-full h-full object-cover"
                             >
-                              <source src="/src/media/team/CTO-ANI.mp4" type="video/mp4" />
+                              <source src={ctoAnimation} type="video/mp4" />
                             </video>
                           </div>
                         </div>
@@ -834,7 +842,7 @@ export default function About() {
                               playsInline
                               className="w-full h-full object-cover"
                             >
-                              <source src="/src/media/team/COO-ANI.mp4" type="video/mp4" />
+                              <source src={cooAnimation} type="video/mp4" />
                             </video>
                           </div>
                         </div>

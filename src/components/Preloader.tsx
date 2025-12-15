@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import whatsappVideo from "@/media/WhatsApp Video 2025-10-29 at 7.24.14 PM.mp4";
+
 
 interface PreloaderProps {
   onComplete?: () => void;
@@ -34,7 +36,7 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
             playsInline 
             className="h-screen w-auto object-contain"
           >
-            <source src="/src/media/WhatsApp Video 2025-10-29 at 7.24.14 PM.mp4" type="video/mp4" />
+            <source src={whatsappVideo} type="video/mp4" />
           </video>
         </div>
       </div>

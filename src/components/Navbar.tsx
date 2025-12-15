@@ -1,6 +1,8 @@
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import whatsappImage from "@/media/WhatsApp Image 2025-10-29 at 7.24.19 PM.jpeg";
+
 
 const navItems = [
   { to: "/", label: "Home" },
@@ -84,7 +86,7 @@ export default function Navbar() {
               {/* Logo container */}
               <div className={logoContainerClasses}>
                 <img 
-                  src="/logo.jpeg" 
+                  src={whatsappImage} 
                   alt="Zidi Digital Solutions – Digitally Different | Divyesh Bondapalli CEO" 
                   className={logoImageClasses}
                 />
